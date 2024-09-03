@@ -16,12 +16,19 @@ int main(int argc, char *argv[])
 
   double base = atof(argv[1]);
   int exponent = atoi(argv[2]);
+  double result = 0.0;
+
 #ifdef USE_MYMATH
   std::cout << "Use my math library." << std::endl;
-  double result = power(base, exponent);
+  result = power(base, exponent);
 #else
+#ifdef HAVE_POW
   std::cout << "Use standard library." << std::endl;
-  double result = pow(base, exponent);
+  result = pow(base, exponent);
+#else
+  std::cout << "Can't use standard library: not found pow" << std::endl;
+  return 2;
+#endif
 #endif
 
   std::cout << base << " ^ " << exponent << " is " << result  << std::endl;

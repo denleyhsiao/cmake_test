@@ -5,6 +5,9 @@ project(cmake_test)
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
 set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O3 -Wall")
 
+include(${CMAKE_ROOT}/Modules/CheckFunctionExists.cmake)
+check_function_exists(pow HAVE_POW)
+
 option(USE_MYMATH
   "Use my math implementation"
   ON
