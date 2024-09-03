@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 {
   if (argc < 3)
   {
+    std::cout << argv[0] << " version " << PROJECT_VERSION << std::endl;
     std::cout << "Usage: " << argv[0] << " base exponent" << std::endl;
     return 1;
   }
